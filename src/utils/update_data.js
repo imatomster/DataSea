@@ -2,14 +2,18 @@
 const { ethers, providers, Signer } = require("ethers");
 const { oceanConfig } = require("./config.js");
 
+
 const {
   ZERO_ADDRESS,
   NftFactory,
   getEventFromTx,
   Nft,
   ProviderInstance,
+  Aquarius, 
+  FixedRateExchange 
 } = require("@oceanprotocol/lib");
 const { SHA256 } = require("crypto-js");
+
 
 const genericAsset = {
   "@context": ["https://w3id.org/did/v1"],
@@ -50,6 +54,8 @@ const freId =
 
 const updateData = async () => {
   // Add Meta Data with Asset_URL
+  let config = await oceanConfig();
+  const aquarius = new Aquarius(config?.metadataCacheUri)
 
   const ASSET_URL = {
     datatokenAddress: "0x0",
@@ -62,7 +68,8 @@ const updateData = async () => {
       },
     ],
   };
-
+  console.log("HERE\n")
+  console.log(config)
   const nft = new Nft(
     config.publisherAccount,
     (await config.publisherAccount.provider.getNetwork()).chainId
@@ -85,16 +92,47 @@ const updateData = async () => {
   fixedDDO.services[0].files = await ProviderInstance.encrypt(
     ASSET_URL,
     fixedDDO.chainId,
-    config.publisherAccount.provider.tokenURI
+    process.env.PROVIDER_URL
   );
   fixedDDO.services[0].datatokenAddress = freDatatokenAddress;
 
   console.log("PLEASE WORK");
   console.log(`DID: ${fixedDDO.id}`);
 
+  const providerResponse = await ProviderInstance.encrypt(
+    fixedDDO,
+    fixedDDO.chainId,
+    process.env.PROVIDER_URL
+  )
+  const encryptedDDO = await providerResponse
+  const isAssetValid = await aquarius.validate(fixedDDO)
+  // assert(isAssetValid.valid === true, 'Published asset is not valid')
+  console.log("valid?", isAssetValid)
+
+  function assert(condition, message) {
+    if (!condition) {
+        throw new Error(message || "Assertion failed");
+    }
+}
+assert(isAssetValid.valid === true, 'Published asset is not valid');
+
+ nft.setMetadata(
+  freNftAddress,
+  config.publisherAccount.getAddress(),
+  0,
+  process.env.PROVIDER_URL,
+  '',
+  ethers.utils.hexlify(2),
+  encryptedDDO,
+  isAssetValid.hash
+)
+console.log("NFT\n")
+console.log(nft)
+
   return {
-    trxReceipt,
-  };
+    // trxReceipt,
+    0
+  : 2};
 };
 
 updateData()
