@@ -1,6 +1,10 @@
 // Note: Make sure .env file and config.js are created and setup correctly
 const { oceanConfig } = require("./config.js");
-const { ZERO_ADDRESS, NftFactory } = require("@oceanprotocol/lib");
+const {
+  ZERO_ADDRESS,
+  NftFactory,
+  getEventFromTx,
+} = require("@oceanprotocol/lib");
 
 // Define a function createFRE()
 const createFRE = async () => {
@@ -55,6 +59,21 @@ const createFRE = async () => {
 
   const trxReceipt = await bundleNFT.wait();
 
+  const nftCreatedEvent = getEventFromTx(trxReceipt, "NFTCreated");
+  const tokenCreatedEvent = getEventFromTx(trxReceipt, "TokenCreated");
+  const newFreEvent = getEventFromTx(trxReceipt, "NewFixedRate");
+  console.log("NFT created event: ", nftCreatedEvent);
+  console.log("Token created event: ", tokenCreatedEvent);
+  console.log("New FRE event: ", newFreEvent);
+  const freNftAddress = nftCreatedEvent.args.newTokenAddress;
+  const freDatatokenAddress = tokenCreatedEvent.args.newTokenAddress;
+  const freAddress = newFreEvent.args.exchangeContract;
+  const freId = newFreEvent.args.exchangeId;
+  console.log(`Fixed rate exchange NFT address: ${freNftAddress}`);
+  console.log(`Fixed rate exchange Datatoken address: ${freDatatokenAddress}`);
+  console.log(`Fixed rate exchange address: ${freAddress}`);
+  console.log(`Fixed rate exchange Id: ${freId}`);
+
   return {
     trxReceipt,
   };
@@ -63,7 +82,7 @@ const createFRE = async () => {
 // Call the createFRE() function
 createFRE()
   .then(({ trxReceipt }) => {
-    console.log(`TX Receipt ${JSON.stringify(trxReceipt, null, 2)}`);
+    // console.log(`TX Receipt ${JSON.stringify(trxReceipt, null, 2)}`);
     process.exit(1);
   })
   .catch((err) => {
