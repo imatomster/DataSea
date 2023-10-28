@@ -1,9 +1,13 @@
 // Note: Make sure .env file and config.js are created and setup correctly
+const { ethers, providers, Signer } = require("ethers");
 const { oceanConfig } = require("./config.js");
+
 const {
   ZERO_ADDRESS,
   NftFactory,
   getEventFromTx,
+  Nft,
+  ProviderInstance,
 } = require("@oceanprotocol/lib");
 
 // Define a function createFRE()
@@ -73,7 +77,6 @@ const createFRE = async () => {
   console.log(`Fixed rate exchange Datatoken address: ${freDatatokenAddress}`);
   console.log(`Fixed rate exchange address: ${freAddress}`);
   console.log(`Fixed rate exchange Id: ${freId}`);
-
   return {
     trxReceipt,
   };
