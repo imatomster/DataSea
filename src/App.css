@@ -33,3 +33,7 @@
   overflow-y: auto;
   height: 100vh;
 }
+
+.blurry-wrapper {
+  filter: blur(5px);
+}
