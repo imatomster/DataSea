@@ -1,6 +1,8 @@
 <img src="./src/assets/icon.png" height="130px"></img>
 
+
 # DataSea: Revolutionizing Data Access & Ownership
+<img width="762" alt="Screenshot 2023-10-29 at 12 06 17 AM" src="https://github.com/imatomster/DataSea/assets/47396265/142ee446-cc77-4091-8fbf-e66ccd524feb">
 
 ## Overview
 
