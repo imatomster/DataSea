@@ -5,9 +5,12 @@ import { DashboardIcon, FaceIcon } from "@radix-ui/react-icons";
 export const NavigationBar = () => {
   return (
     <div className="bg-gray-900 text-white h-screen left-0 top-0 flex flex-col m-0">
-      <div className="flex items-center justify-start p-4 m-0 justify-center items-center">
+      <Link
+        to="/"
+        className="flex items-center justify-start p-4 m-0 justify-center items-center"
+      >
         <span className="py-5 text-xl font-semibold">DataSea</span>
-      </div>
+      </Link>
 
       <nav className="flex-1">
         <ul>
