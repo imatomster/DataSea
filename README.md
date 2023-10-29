@@ -1,3 +1,5 @@
+<img src="./src/assets/icon.png" height="130px"></img>
+
 # DataSea: Revolutionizing Data Access & Ownership
 
 ## Overview
