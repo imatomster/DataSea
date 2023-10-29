@@ -2,6 +2,8 @@ import React from "react";
 import { MintButton, DispenseButton } from "../components/DispenserButtons";
 import { AddDataButton, GetDataButton } from "../components/DataButtons";
 import { NavigationBar } from "../components/NavigationBar";
+import { DataBox } from "../components/DataBox";
+import '../App.css'
 import {
   getDefaultWallets,
   RainbowKitProvider,
@@ -11,11 +13,11 @@ import {
 export function DashboardPage() {
   return (
     <div className="h-full">
-      <h1>ETHMiami 2023</h1>
-      <MintButton /> <br />
-      <DispenseButton /> <br />
-      <GetDataButton /> <br />
-      <AddDataButton /> <br />
+    <div className="data-boxes-container">
+      <DataBox/>
+      <DataBox/>
+      <DataBox/>
+      </div>
     </div>
   );
 }

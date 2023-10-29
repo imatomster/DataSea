@@ -27,3 +27,11 @@
     transform: rotate(360deg);
   }
 }
+
+.data-boxes-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  overflow-y: auto;
+  height: 100vh;
+}
