@@ -8,7 +8,7 @@ import { ProviderForm } from "../components/ProviderForm";
 
 export function FormPage() {
   return (
-    <div className="h-full">
+    <div className="h-full flex-col pl-10 pr-10">
       <ProviderForm />
     </div>
   );

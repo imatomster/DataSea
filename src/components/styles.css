@@ -1,74 +1,66 @@
 .provider-form {
-    width: 90%;
-    height:100%;
-    font-family: Arial, sans-serif;
-    background-color: #1B2028;
-    padding: 20px;
-    color: white;
-    border-radius: 10px;
-    justify-content: center;
+  width: 100%;
+  max-width: 1150px; /* Set a max-width to make sure form doesn't stretch too wide */
+  margin: 0 auto; /* Centers the container horizontally */
+  height: auto; /* Adjusted to auto to fit the content */
+  font-family: Arial, sans-serif;
+  background-color: #1b2028;
+  padding: 20px;
+  color: white;
+  border-radius: 10px;
+  display: flex; /* To use Flexbox properties */
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center;
+  align-items: center; /* Center children horizontally */
 }
 
 .provider-form h2 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
+  font-size: 1.2em;
+  margin-bottom: 10px;
 }
 
 .provider-form input[type="text"],
 .provider-form textarea,
 .provider-form select {
-    width: 90%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #31353F;
-    background-color: #31353F;
-    color: white;
+  width: 100%; /* Set to 100% to occupy full width of parent */
+  padding: 10px;
+  margin-bottom: 10px; /* Adjusted to have a gap between form elements */
+  border: 1px solid #31353f;
+  background-color: #31353f;
+  color: white;
+  border-radius: 5px; /* Add some rounded corners */
 }
 
 .provider-form select {
-    padding: 10px; /* Adjust as needed */
-    border: 1px solid #31353F;
-    margin: 0;    /* Ensure no default margins */
-    box-sizing: border-box; /* This ensures padding and border are included in the element's total width */
-}
-.provider-form textarea{
-    resize:none
+  appearance: none; /* To remove default browser styling */
 }
 
-
+.provider-form textarea {
+  resize: none;
+}
 
 .provider-form label {
-    display: block;
-    margin-bottom: 10px;
+  display: block;
+  margin-bottom: 10px;
 }
 
-
-.provider-form input[type="text"],
-.provider-form textarea,
-.provider-form select {
-    box-sizing: border-box;
-}
-
-.last2kids{
-    display: flex;
-    justify-content: center;
+.last2kids {
+  display: flex;
+  justify-content: center;
+  width: 100%; /* Ensure it takes up the full width */
 }
 
 .provider-form button {
-    display: flex;
-    padding: 10px 20px;
-    background-color: #007BFF;
-    flex-direction: column;
-    border: none;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-    width: 100px;
-    margin-top: 20px;
-    align-items: center;
+  padding: 10px 20px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 170px;
+  margin-top: 20px;
 }
 
 .container:hover {
-    width: 350px;  
-    height: 350px;
+  transform: scale(1.1); /* Enlarge the container on hover */
 }
