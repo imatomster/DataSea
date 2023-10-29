@@ -39,7 +39,6 @@ export const DataBox = (props) => {
     ];
 
     const randomIndex = Math.floor(Math.random() * colorNames.length);
-    console.log(colorNames[randomIndex]);
     return colorNames[randomIndex];
   }
   const randomColor = randomizeColorName();

@@ -1,4 +1,4 @@
-//const dotenv = require("dotenv").config();
+const dotenv = require("dotenv").config();
 const {
   // Aquarius,
   ConfigHelper,
@@ -13,8 +13,9 @@ async function oceanConfig() {
   const provider = new ethers.providers.JsonRpcProvider(
     "https://polygon-mumbai.g.alchemy.com/v2/S-Kgh5KVRBPdtabpMC4VZJRMhel8EWvi" //|| configHelperNetworks[1].nodeUri
   );
+  console.log(process.env.REACT_APP_PRIVATE_KEY);
   const publisherAccount = new ethers.Wallet(
-    "ec0aad33784ffdced66e190f2ee501eb827672ec52c1c7abcb67176f41a378d1",
+    process.env.REACT_APP_PRIVATE_KEY,
     provider
   );
 
