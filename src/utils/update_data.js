@@ -2,7 +2,6 @@
 const { ethers, providers, Signer } = require("ethers");
 const { oceanConfig } = require("./config.js");
 
-
 const {
   ZERO_ADDRESS,
   NftFactory,
@@ -49,8 +48,7 @@ const genericAsset = {
 const freNftAddress = "0xa8aE431FB24A6957C852f1cF69cf0461A281C178";
 const freDatatokenAddress = "0x0A09E3F14E8a94FA66463BEB6C023cD5b016d3Cd";
 const freAddress = "0x25e1926E3d57eC0651e89C654AB0FA182C6D5CF7";
-const freId =
-  "0xd5cc01c3e79dbfd17395fedc9dd5112e11c3a639fc81cc15041da82f6a5e4496";
+const freId = "0xd5cc01c3e79dbfd17395fedc9dd5112e11c3a639fc81cc15041da82f6a5e4496";
 
 const updateData = async () => {
   // Add Meta Data with Asset_URL
@@ -170,12 +168,4 @@ const updateData = async () => {
   : 2};
 };
 
-updateData()
-  .then(({ trxReceipt }) => {
-    // console.log(`TX Receipt ${JSON.stringify(trxReceipt, null, 2)}`);
-    process.exit(1);
-  })
-  .catch((err) => {
-    console.error(err);
-    process.exit(1);
-  });
+export { updateData };
