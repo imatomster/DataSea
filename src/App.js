@@ -1,20 +1,16 @@
 import "./App.css";
 import "@rainbow-me/rainbowkit/styles.css";
-import {
-  getDefaultWallets,
-  RainbowKitProvider,
-  ConnectButton,
-} from "@rainbow-me/rainbowkit";
+import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import { polygonMumbai } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 import { NavigationBar } from "./components/NavigationBar";
 import { HeaderBar } from "./components/HeaderBar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { DashboardPage } from "./containers/DashboardPage";
-import { MyProfilePage } from "./containers/MyProfilePage";
+import { Dashboard } from "./containers/Dashboard";
+import { Marketplace } from "./containers/Marketplace";
 import { FormPage } from "./containers/FormPage";
-import { SettingPage } from "./containers/SettingPage";
+import { AIProcessing } from "./containers/AIProcessing";
 
 const { chains, publicClient } = configureChains(
   [polygonMumbai],
@@ -33,7 +29,7 @@ function App() {
         <RainbowKitProvider chains={chains}>
           <div className="flex h-screen bg-gray-800 text-white font-poppins">
             {/* Navigation Bar */}
-            <div className="w-64">
+            <div className="w-56">
               <NavigationBar />
             </div>
 
@@ -45,13 +41,14 @@ function App() {
               </div>
 
               {/* Routes/Content */}
-              <div className="flex-1 overflow-y-auto p-10">
+              <div className="flex-1 overflow-y-auto">
                 <Routes>
-                  <Route path="/" element={<DashboardPage />} />
-                  <Route path="/profile" element={<MyProfilePage />} />
+                  <Route path="/" element={<Dashboard />} />
+                  <Route path="/marketplace" element={<Marketplace />} />
                   <Route path="/form" element={<FormPage />} />
-                  <Route path="/settings" element={<SettingPage />} />
-                  <Route path="/logout" element={<DashboardPage />} />
+                  <Route path="/aiprocessing" element={<AIProcessing />} />
+                  <Route path="/settings" />
+                  <Route path="/logout" />
                 </Routes>
               </div>
             </div>

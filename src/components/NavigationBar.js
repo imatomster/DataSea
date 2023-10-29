@@ -4,7 +4,7 @@ import { DashboardIcon, FaceIcon } from "@radix-ui/react-icons";
 
 export const NavigationBar = () => {
   return (
-    <div className="bg-gray-900 text-white h-screen w-64 left-0 top-0 flex flex-col m-0">
+    <div className="bg-gray-900 text-white h-screen left-0 top-0 flex flex-col m-0">
       <div className="flex items-center justify-start p-4 m-0 justify-center items-center">
         <span className="py-5 text-xl font-semibold">DataSea</span>
       </div>
@@ -18,9 +18,12 @@ export const NavigationBar = () => {
             </Link>
           </li>
           <li className="py-2 hover:bg-gray-700 m-0">
-            <Link to="/profile" className="flex items-center justify-center">
+            <Link
+              to="/marketplace"
+              className="flex items-center justify-center"
+            >
               <FaceIcon className="mr-3" />
-              My Profile
+              Marketplace
             </Link>
           </li>
           <li className="py-2  hover:bg-gray-700 m-0">
@@ -40,7 +43,16 @@ export const NavigationBar = () => {
                   clip-rule="evenodd"
                 ></path>
               </svg>
-              Form
+              Provide Data
+            </Link>
+          </li>
+          <li className="py-2 hover:bg-gray-700 m-0">
+            <Link
+              to="/aiprocessing"
+              className="flex items-center justify-center"
+            >
+              <FaceIcon className="mr-3" />
+              AI Processing
             </Link>
           </li>
         </ul>

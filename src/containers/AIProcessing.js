@@ -6,6 +6,6 @@ import {
   ConnectButton,
 } from "@rainbow-me/rainbowkit";
 
-export function SettingPage() {
+export function AIProcessing() {
   return <div className="h-full">Setting Page</div>;
 }
