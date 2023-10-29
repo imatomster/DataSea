@@ -58,7 +58,7 @@ const createDispenser = async (name, symbol) => {
     dispenserParams
   );
 
-  // console.log(bundleNFT);
+  console.log(bundleNFT);
 
   const trxReceipt = await bundleNFT.wait();
   const nftCreatedEvent = getEventFromTx(trxReceipt, "NFTCreated");
