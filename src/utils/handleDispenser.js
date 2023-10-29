@@ -18,6 +18,7 @@ const freId =
 const dispenserNftAddy = "0x57155113737e5BFfA6D1776963C2A366300a361F";
 const dispenserDatatokenHash = "0xE0f5a9508040fBF3f7EEbcB13542082417AEeDc1";
 
+// need to add accept the stuff
 const createDispenser = async () => {
   const config = await oceanConfig();
   const publisherAccount = config.publisherAccount;
@@ -58,7 +59,7 @@ const createDispenser = async () => {
     dispenserParams
   );
 
-  // console.log(bundleNFT);
+  console.log(bundleNFT);
 
   const trxReceipt = await bundleNFT.wait();
   const nftCreatedEvent = getEventFromTx(trxReceipt, "NFTCreated");
@@ -79,6 +80,7 @@ const createDispenser = async () => {
   };
 };
 
+// change the dispenser to the current props
 const dispenseNFT = async () => {
   const config = await oceanConfig();
   const publisherAccount = config.publisherAccount;
