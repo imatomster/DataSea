@@ -4,6 +4,9 @@
 # DataSea: Revolutionizing Data Access & Ownership
 <img width="768" alt="Screenshot 2023-10-29 at 7 57 34 AM" src="https://github.com/imatomster/DataSea/assets/47396265/2cc997e7-6598-4d10-adac-e7a6ebd5222d">
 
+[Dorahacks Buidl](https://dorahacks.io/buidl/7827) <br />
+[Google Presentation](https://docs.google.com/presentation/d/111wpSPvOQIPAAM3ka6hrPV6c_rgGucTK1E7YXFQTeMo/edit?usp=sharing)<br />
+[Google Drive File](https://drive.google.com/file/d/1vgfOtya5i5yqbHIG_2aEsynadEpsx4Ut/view)<br />
 
 ## Overview
 
