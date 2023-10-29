@@ -14,6 +14,55 @@ export const DataBox = (props) => {
     "Year, Average House Price ($), Predicted Price Change (%) 2020, 350,000, 3.0 2021, 360,500, 2.8 2022, 370,926, 2.5 2023, 380,449, 2.3 2024, 389,060, 2.2 2025, 397,786, 2.1 2026, 406,238, 2.0 2027, 414,242, 1.9 2028, 421,806, 1.8 2029, 429,034, 1.7 2030, 436,235, 1.5 2031, 442,838, 1.4 2032, 448,859, 1.3 2033, 454,509, 1.2 2034, 460,054, 1.1 2035, 465,154, 1.0 2036, 469,855, 0.9 2037, 474,082, 0.8 2038, 477,843, 0.7 2039, 481,340, 0.6 2040, 484,582, 0.5"
   );
 
+  function randomizeColorName() {
+    const colorNames = [
+      "Red",
+      "Blue",
+      "Green",
+      "Yellow",
+      "Purple",
+      "Orange",
+      "Pink",
+      "Cyan",
+      "Magenta",
+      "Lime",
+      "Teal",
+      "Lavender",
+      "Brown",
+      "Beige",
+      "Maroon",
+      "Navy",
+      "Olive",
+      "Turquoise",
+      "Silver",
+      "Gold",
+    ];
+
+    const randomIndex = Math.floor(Math.random() * colorNames.length);
+    console.log(colorNames[randomIndex]);
+    return colorNames[randomIndex];
+  }
+  const randomColor = randomizeColorName();
+
+  function randomizePathD() {
+    const getRandomValue = (min, max) => {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    };
+
+    let pathD = "M0," + getRandomValue(65, 85);
+
+    const points = [25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300];
+    for (let i = 0; i < points.length; i += 2) {
+      pathD += ` Q${points[i]},${getRandomValue(45, 75)} ${
+        points[i + 1]
+      },${getRandomValue(55, 75)}`;
+    }
+
+    return pathD;
+  }
+
+  const pathD = randomizePathD();
+
   function closeModal() {
     setIsOpen(false);
   }
@@ -30,12 +79,7 @@ export const DataBox = (props) => {
         <div style={styles.subTitle}>{subTitle}</div>
         <div style={styles.chart}>
           <svg width="100%" height="100%">
-            <path
-              d="M0,80 Q25,50 50,70 Q75,60 100,40 Q125,50 150,30 Q175,70 200,60 Q225,90 250,70 Q275,60 300,50"
-              stroke="red"
-              strokeWidth="2"
-              fill="none"
-            />
+            <path d={pathD} stroke={randomColor} strokeWidth="2" fill="none" />
           </svg>
         </div>
         <b>

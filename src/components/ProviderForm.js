@@ -61,7 +61,7 @@ const ProviderForm = () => {
       <div className="last2kids">
         <button
           className="transition-transform hover:scale-105 "
-          disabled={!swapInProgress}
+          disabled={swapInProgress}
           onClick={async () => {
             setSwapInProgress(true);
 

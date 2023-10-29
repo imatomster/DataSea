@@ -6,8 +6,6 @@ import { NavigationBar } from "../components/NavigationBar";
 import { DataBox } from "../components/DataBox";
 import "../App.css";
 
-
-
 export function Marketplace() {
   return (
     <div className="h-full pl-10 pr-10">
