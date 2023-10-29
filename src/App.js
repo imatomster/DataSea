@@ -8,8 +8,6 @@ import {
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import { polygonMumbai } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
-import { MintButton, DispenseButton } from "./components/DispenserButtons";
-import { AddDataButton, GetDataButton } from "./components/DataButtons";
 import { NavigationBar } from "./components/NavigationBar";
 import { HeaderBar } from "./components/HeaderBar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -30,7 +28,7 @@ const wagmiConfig = createConfig({
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter className="app-container">
       <WagmiConfig config={wagmiConfig}>
         <RainbowKitProvider chains={chains}>
           <div className="flex h-screen bg-gray-800 text-white font-poppins">
@@ -50,7 +48,7 @@ function App() {
               <div className="flex-1 overflow-y-auto p-10">
                 <Routes>
                   <Route path="/" element={<DashboardPage />} />
-                  <Route path="/models" element={<MyProfilePage />} />
+                  <Route path="/profile" element={<MyProfilePage />} />
                   <Route path="/form" element={<FormPage />} />
                   <Route path="/settings" element={<SettingPage />} />
                   <Route path="/logout" element={<DashboardPage />} />

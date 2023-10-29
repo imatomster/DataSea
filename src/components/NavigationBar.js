@@ -18,7 +18,7 @@ export const NavigationBar = () => {
             </Link>
           </li>
           <li className="py-2 hover:bg-gray-700 m-0">
-            <Link to="/models" className="flex items-center justify-center">
+            <Link to="/profile" className="flex items-center justify-center">
               <FaceIcon className="mr-3" />
               My Profile
             </Link>

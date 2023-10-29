@@ -43,7 +43,7 @@ const genericAsset = {
 };
 
 // const setNFTData = async (publishAccount, freNftAddress, data) => {
-const setNFTData = async (data) => {
+const setNFTData = async (data, dispenserNftAddress) => {
   let rv = {};
   let config = await oceanConfig();
 
@@ -55,7 +55,7 @@ const setNFTData = async (data) => {
   //SET DATA
   try {
     await nft.setData(
-      freNftAddress,
+      dispenserNftAddress,
       await config.publisherAccount.getAddress(),
       "0x1234",
       data
@@ -70,7 +70,7 @@ const setNFTData = async (data) => {
 };
 
 // const getNFTData = async (publisherAccount, freNftAddress) => {
-const getNFTData = async () => {
+const getNFTData = async (dispenserNftAddress) => {
   let rv = {};
   let config = await oceanConfig();
 
@@ -82,9 +82,9 @@ const getNFTData = async () => {
 
   try {
     const response = await nft.getData(freNftAddress, "0x1234");
-    rv = { success: true, data: response };
+    rv = { success: true, data: response, dispenserNftAddress: dispenserNftAddress };
   } catch (e) {
-    rv = { success: false, data: null };
+    rv = { success: false, data: null, dispenserNftAddress: dispenserNftAddress };
     console.log("e = ", e);
     console.log("Failed to get data from NFT ERC725 key value store", e);
   }

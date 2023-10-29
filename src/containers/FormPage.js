@@ -4,7 +4,13 @@ import {
   RainbowKitProvider,
   ConnectButton,
 } from "@rainbow-me/rainbowkit";
+import { ProviderForm } from "../components/ProviderForm";
 
 export function FormPage() {
-  return <div className="h-full">Form Page</div>;
+  return (
+    <div className="h-full">
+      <h1>Form Page</h1>
+      <ProviderForm />
+    </div>
+  );
 }
