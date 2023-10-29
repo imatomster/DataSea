@@ -9,7 +9,7 @@ import { useLocation } from "react-router-dom";
 export const HeaderBar = () => {
   const location = useLocation();
   const map = {
-    "/": "Your Data",
+    "/": "My Assets",
     "/marketplace": "Buy Models",
     "/form": "Sell Data",
     "/aiprocessing": "Data with AI",

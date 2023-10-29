@@ -11,7 +11,7 @@ export const NavigationBar = () => {
         className="flex items-center justify-start p-4 m-0 justify-center items-center"
       >
         <img src={icon} style={{ width: '40px' }} alt="My Icon" />
-        <span className="py-5 text-xl font-semibold">DataSea</span>
+        <span className="py-5 text-xl font-semibold"> DataSea</span>
       </Link>
 
       <nav className="flex-1">
