@@ -1,4 +1,5 @@
 import React from "react";
+import "../App.css";
 
 export function Dashboard() {
   return (
@@ -10,6 +11,7 @@ export function Dashboard() {
             View More
           </button>
         </div>
+        <div className="blurry-wrapper">
 
         <div className="grid grid-cols-4 gap-4">
           {[...Array(4)].map((_, index) => (
@@ -28,7 +30,7 @@ export function Dashboard() {
                 <svg viewBox="0 0 100 40" className="mx-auto">
                   <polyline
                     fill="none"
-                    stroke="#34D399"
+                    stroke="#FF0000"
                     strokeWidth="2"
                     points="10,30 20,10 30,20 40,10 50,15 60,10 70,20 80,30"
                   />
@@ -36,6 +38,7 @@ export function Dashboard() {
               </div>
             </div>
           ))}
+          </div>
         </div>
       </div>
 
@@ -47,6 +50,7 @@ export function Dashboard() {
           </button>
         </div>
 
+      <div className="blurry-wrapper">
         <div className="grid grid-cols-4 gap-4">
           {[...Array(4)].map((_, index) => (
             <div key={index} className="bg-gray-700 p-3 rounded-lg relative">
@@ -72,6 +76,7 @@ export function Dashboard() {
               </div>
             </div>
           ))}
+          </div>
         </div>
       </div>
     </div>
