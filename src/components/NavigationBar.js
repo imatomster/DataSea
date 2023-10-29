@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { DashboardIcon, FaceIcon } from "@radix-ui/react-icons";
-import icon from '../assets/icon.png';
+import { DashboardIcon } from "@radix-ui/react-icons";
+import icon from "../assets/icon.png";
 
 export const NavigationBar = () => {
   return (
@@ -10,7 +10,7 @@ export const NavigationBar = () => {
         to="/"
         className="flex items-center justify-start p-4 m-0 justify-center items-center"
       >
-        <img src={icon} style={{ width: '40px' }} alt="My Icon" />
+        <img src={icon} style={{ width: "40px" }} alt="My Icon" />
         <span className="py-5 text-xl font-semibold"> DataSea</span>
       </Link>
 
