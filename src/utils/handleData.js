@@ -70,7 +70,10 @@ const setNFTData = async (data, dispenserNftAddress) => {
 };
 
 // const getNFTData = async (publisherAccount, freNftAddress) => {
-const getNFTData = async (dispenserNftAddress) => {
+const getNFTData = async (
+  dispenserNftAddy = "0x57155113737e5BFfA6D1776963C2A366300a361F",
+  dispenserNftAddress = "0xE0f5a9508040fBF3f7EEbcB13542082417AEeDc1"
+) => {
   let rv = {};
   let config = await oceanConfig();
 
@@ -81,10 +84,18 @@ const getNFTData = async (dispenserNftAddress) => {
   );
 
   try {
-    const response = await nft.getData(freNftAddress, "0x1234");
-    rv = { success: true, data: response, dispenserNftAddress: dispenserNftAddress };
+    const response = await nft.getData(dispenserNftAddy, "0x1234");
+    rv = {
+      success: true,
+      data: response,
+      dispenserNftAddress: dispenserNftAddress,
+    };
   } catch (e) {
-    rv = { success: false, data: null, dispenserNftAddress: dispenserNftAddress };
+    rv = {
+      success: false,
+      data: null,
+      dispenserNftAddress: dispenserNftAddress,
+    };
     console.log("e = ", e);
     console.log("Failed to get data from NFT ERC725 key value store", e);
   }
