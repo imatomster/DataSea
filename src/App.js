@@ -1,7 +1,10 @@
 import "./App.css";
 import "@rainbow-me/rainbowkit/styles.css";
-import { RainbowKitProvider, connectorsForWallets } from "@rainbow-me/rainbowkit";
-import { metaMaskWallet } from '@rainbow-me/rainbowkit/wallets';
+import {
+  RainbowKitProvider,
+  connectorsForWallets,
+} from "@rainbow-me/rainbowkit";
+import { metaMaskWallet } from "@rainbow-me/rainbowkit/wallets";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import { polygonMumbai } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
@@ -20,11 +23,9 @@ const { chains, publicClient } = configureChains(
 
 const connectors = connectorsForWallets([
   {
-    groupName: 'Recommended',
-    wallets: [
-      metaMaskWallet({ chains })
-    ]
-  }
+    groupName: "Recommended",
+    wallets: [metaMaskWallet({ chains })],
+  },
 ]);
 
 const wagmiConfig = createConfig({
@@ -45,7 +46,7 @@ function App() {
             </div>
 
             {/* Main Content Area */}
-            <div className="flex flex-col flex-1" style={{padding: "40px"}}>
+            <div className="flex flex-col flex-1">
               {/* Header Bar */}
               <div>
                 <HeaderBar />

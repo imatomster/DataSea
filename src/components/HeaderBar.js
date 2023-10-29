@@ -25,11 +25,16 @@ export const HeaderBar = () => {
     <div className="flex items-center justify-between px-8 p-5">
       <h1 className="text-white font-bold text-3xl p-3 mr-10">{name}</h1>
       <div className="flex flex-grow items-center space-x-4">
-        <input
-          type="text"
-          placeholder="Search Data Sets..."
-          className="rounded px-4 py-2 flex-grow bg-slate-900 mr-10 text-white"
-        />
+        {(location.pathname === "/", location.pathname === "/marketplace") ? (
+          <input
+            type="text"
+            placeholder="Search Data Sets..."
+            className="rounded px-4 py-2 flex-grow bg-slate-900 mr-10 text-white"
+          />
+        ) : (
+          <div className="rounded px-4 py-2 flex-grow bg-transparent mr-10 text-white"></div>
+        )}
+
         <svg
           width="15"
           height="15"
