@@ -1,0 +1,6 @@
+{
+    "title": "Miami-Dade Housing Prices Prediction",
+    "start": "2020",
+    "end": "2069", 
+    "data": "M0,80 Q25,50 50,70 Q75,60 100,40 Q125,50 150,30 Q175,70 200,60 Q225,90 250,70 Q275,60 300,50"
+}
