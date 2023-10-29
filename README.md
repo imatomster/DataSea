@@ -2,7 +2,8 @@
 
 
 # DataSea: Revolutionizing Data Access & Ownership
-<img width="762" alt="Screenshot 2023-10-29 at 12 06 17 AM" src="https://github.com/imatomster/DataSea/assets/47396265/142ee446-cc77-4091-8fbf-e66ccd524feb">
+<img width="768" alt="Screenshot 2023-10-29 at 7 57 34 AM" src="https://github.com/imatomster/DataSea/assets/47396265/2cc997e7-6598-4d10-adac-e7a6ebd5222d">
+
 
 ## Overview
 
