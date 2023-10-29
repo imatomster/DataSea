@@ -1,22 +1,17 @@
 import "./App.css";
+import { createDataNFT } from "./utils/create_dataNFT";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <button onClick={() => {
+      createDataNFT()
+      .then(({ nftAddress }) => {
+        console.log(`DataNft address ${nftAddress}`);
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+    }}>Click</button>
   );
 }
 

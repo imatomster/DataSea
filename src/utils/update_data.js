@@ -55,79 +55,114 @@ const freId =
 const updateData = async () => {
   // Add Meta Data with Asset_URL
   let config = await oceanConfig();
-  const aquarius = new Aquarius(config?.metadataCacheUri)
+  // const aquarius = new Aquarius(config?.metadataCacheUri)
 
-  const ASSET_URL = {
-    datatokenAddress: "0x0",
-    nftAddress: "0x0",
-    files: [
-      {
-        type: "url",
-        url: "https://raw.githubusercontent.com/oceanprotocol/testdatasets/main/shs_dataset_test.txt",
-        method: "GET",
-      },
-    ],
-  };
-  console.log("HERE\n")
-  console.log(config)
+  // const ASSET_URL = {
+  //   datatokenAddress: "0x0",
+  //   nftAddress: "0x0",
+  //   files: [
+  //     {
+  //       type: "url",
+  //       url: "https://raw.githubusercontent.com/oceanprotocol/testdatasets/main/shs_dataset_test.txt",
+  //       method: "GET",
+  //     },
+  //   ],
+  // };
+  // console.log("HERE\n")
+  // console.log(config)
   const nft = new Nft(
     config.publisherAccount,
     (await config.publisherAccount.provider.getNetwork()).chainId
   );
-
-  const fixedDDO = { ...genericAsset };
-
-  fixedDDO.chainId = (
-    await config.publisherAccount.provider.getNetwork()
-  ).chainId;
-  fixedDDO.id =
-    "did:op:" +
-    SHA256(
-      ethers.utils.getAddress(freNftAddress) + fixedDDO.chainId.toString(10)
-    );
-  fixedDDO.nftAddress = freNftAddress;
-
-  ASSET_URL.datatokenAddress = freDatatokenAddress;
-  ASSET_URL.nftAddress = freNftAddress;
-  fixedDDO.services[0].files = await ProviderInstance.encrypt(
-    ASSET_URL,
-    fixedDDO.chainId,
-    process.env.PROVIDER_URL
-  );
-  fixedDDO.services[0].datatokenAddress = freDatatokenAddress;
-
-  console.log("PLEASE WORK");
-  console.log(`DID: ${fixedDDO.id}`);
-
-  const providerResponse = await ProviderInstance.encrypt(
-    fixedDDO,
-    fixedDDO.chainId,
-    process.env.PROVIDER_URL
-  )
-  const encryptedDDO = await providerResponse
-  const isAssetValid = await aquarius.validate(fixedDDO)
-  // assert(isAssetValid.valid === true, 'Published asset is not valid')
-  console.log("valid?", isAssetValid)
-
-  function assert(condition, message) {
-    if (!condition) {
-        throw new Error(message || "Assertion failed");
+  const assert = {
+    fail: function(message, error) {
+        throw new Error(`${message}: ${error}`);
     }
-}
-assert(isAssetValid.valid === true, 'Published asset is not valid');
+};
+//SET DATA
+  const data = 'SomeData'
+    try {
+      await nft.setData(
+        freNftAddress,
+        await config.publisherAccount.getAddress(),
+        '0x1234',
+        data
+      )
+    } catch (e) {
+      console.log('e = ', e)
+      assert.fail('Failed to set data in NFT ERC725 key value store', e)
+    }
 
- nft.setMetadata(
-  freNftAddress,
-  config.publisherAccount.getAddress(),
-  0,
-  process.env.PROVIDER_URL,
-  '',
-  ethers.utils.hexlify(2),
-  encryptedDDO,
-  isAssetValid.hash
-)
-console.log("NFT\n")
-console.log(nft)
+    
+//  GET DATA 
+ try {
+  const response = await nft.getData(freNftAddress, '0x1234')
+  console.log('getData response: ', response)
+  if (response === data) {
+    console.log( 'Right data received when getting data from NFT ERC725 key value store')
+    console.log(response)
+
+  }
+  else{
+    console.log("WRONG")
+  }
+} catch (e) {
+  console.log('e = ', e)
+  assert('Failed to get data from NFT ERC725 key value store', e)
+}
+
+  // const fixedDDO = { ...genericAsset };
+
+  // fixedDDO.chainId = (
+  //   await config.publisherAccount.provider.getNetwork()
+  // ).chainId;
+  // fixedDDO.id =
+  //   "did:op:" +
+  //   SHA256(
+  //     ethers.utils.getAddress(freNftAddress) + fixedDDO.chainId.toString(10)
+  //   );
+  // fixedDDO.nftAddress = freNftAddress;
+
+  // ASSET_URL.datatokenAddress = freDatatokenAddress;
+  // ASSET_URL.nftAddress = freNftAddress;
+  // fixedDDO.services[0].files = await ProviderInstance.encrypt(
+  //   ASSET_URL,
+  //   fixedDDO.chainId,
+  //   process.env.PROVIDER_URL
+  // );
+  // fixedDDO.services[0].datatokenAddress = freDatatokenAddress;
+
+  // console.log("PLEASE WORK");
+  // console.log(`DID: ${fixedDDO.id}`);
+
+  // const providerResponse = await ProviderInstance.encrypt(
+  //   fixedDDO,
+  //   fixedDDO.chainId,
+  //   process.env.PROVIDER_URL
+  // )
+  // const encryptedDDO = await providerResponse
+  // const isAssetValid = await aquarius.validate(fixedDDO)
+  // // assert(isAssetValid.valid === true, 'Published asset is not valid')
+  // console.log("valid?", isAssetValid)
+
+  // function assert(condition, message) {
+//     if (!condition) {
+//         throw new Error(message || "Assertion failed");
+//     }
+// }
+// assert(isAssetValid.valid === true, 'Published asset is not valid');
+
+//  nft.setMetadata(
+//   freNftAddress,
+//   config.publisherAccount.getAddress(),
+//   0,
+//   process.env.PROVIDER_URL,
+//   '',
+//   ethers.utils.hexlify(2),
+//   encryptedDDO,
+//   isAssetValid.hash
+// )
+
 
   return {
     // trxReceipt,

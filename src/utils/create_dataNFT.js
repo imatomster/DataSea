@@ -32,12 +32,5 @@ const createDataNFT = async () => {
 };
 
 // Call the create createDataNFT() function
-createDataNFT()
-  .then(({ nftAddress }) => {
-    console.log(`DataNft address ${nftAddress}`);
-    process.exit();
-  })
-  .catch((err) => {
-    console.error(err);
-    process.exit(1);
-  });
+
+export {createDataNFT};
