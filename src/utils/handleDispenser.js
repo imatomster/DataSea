@@ -79,7 +79,11 @@ const createDispenser = async (name, symbol) => {
   };
 };
 
-const dispenseNFT = async (name, symbol, dispenserDatatokenHash) => {
+const dispenseNFT = async (
+  name,
+  symbol,
+  dispenserDatatokenHash = "0xE0f5a9508040fBF3f7EEbcB13542082417AEeDc1"
+) => {
   const config = await oceanConfig();
   const publisherAccount = config.publisherAccount;
   const datatoken = new Datatoken(publisherAccount);
@@ -93,9 +97,7 @@ const dispenseNFT = async (name, symbol, dispenserDatatokenHash) => {
     dispenserDatatokenHash,
     await consumerAccount.getAddress()
   );
-  console.log(
-    `Consumer ${name} balance before dispense: ${consumerDTBalance}`
-  );
+  console.log(`Consumer ${name} balance before dispense: ${consumerDTBalance}`);
 
   await dispenser.dispense(
     dispenserDatatokenHash,
@@ -111,6 +113,11 @@ const dispenseNFT = async (name, symbol, dispenserDatatokenHash) => {
   console.log(
     `Consumer ${symbol} balance after dispense: ${consumerDTBalance}`
   );
+
+  return {
+    dispenserDatatokenHash: dispenserDatatokenHash,
+    publisherAccount: await publisherAccount.getAddress(),
+  };
 };
 
 export { createDispenser, dispenseNFT };
