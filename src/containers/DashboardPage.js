@@ -12,7 +12,6 @@ export function DashboardPage() {
   return (
     <div className="h-full">
       <h1>ETHMiami 2023</h1>
-      <ConnectButton />
       <MintButton /> <br />
       <DispenseButton /> <br />
       <GetDataButton /> <br />

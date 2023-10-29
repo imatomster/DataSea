@@ -5,6 +5,6 @@ import {
   ConnectButton,
 } from "@rainbow-me/rainbowkit";
 
-export function ModelsPage() {
-  return <div className="h-full">Model Page</div>;
+export function MyProfilePage() {
+  return <div className="h-full">My Profile Page</div>;
 }

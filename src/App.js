@@ -11,9 +11,10 @@ import { publicProvider } from "wagmi/providers/public";
 import { MintButton, DispenseButton } from "./components/DispenserButtons";
 import { AddDataButton, GetDataButton } from "./components/DataButtons";
 import { NavigationBar } from "./components/NavigationBar";
+import { HeaderBar } from "./components/HeaderBar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { DashboardPage } from "./containers/DashboardPage";
-import { ModelsPage } from "./containers/ModelsPage";
+import { MyProfilePage } from "./containers/MyProfilePage";
 import { FormPage } from "./containers/FormPage";
 import { SettingPage } from "./containers/SettingPage";
 
@@ -33,14 +34,29 @@ function App() {
       <WagmiConfig config={wagmiConfig}>
         <RainbowKitProvider chains={chains}>
           <div className="flex h-screen bg-gray-800 text-white font-poppins">
-            <NavigationBar />
-            <Routes className="flex-1">
-              <Route path="/" element={<DashboardPage />} />
-              <Route path="/models" element={<ModelsPage />} />
-              <Route path="/form" element={<FormPage />} />
-              <Route path="/settings" element={<SettingPage />} />
-              <Route path="/logout" element={<DashboardPage />} />
-            </Routes>
+            {/* Navigation Bar */}
+            <div className="w-64">
+              <NavigationBar />
+            </div>
+
+            {/* Main Content Area */}
+            <div className="flex flex-col flex-1">
+              {/* Header Bar */}
+              <div>
+                <HeaderBar />
+              </div>
+
+              {/* Routes/Content */}
+              <div className="flex-1 overflow-y-auto p-10">
+                <Routes>
+                  <Route path="/" element={<DashboardPage />} />
+                  <Route path="/models" element={<MyProfilePage />} />
+                  <Route path="/form" element={<FormPage />} />
+                  <Route path="/settings" element={<SettingPage />} />
+                  <Route path="/logout" element={<DashboardPage />} />
+                </Routes>
+              </div>
+            </div>
           </div>
         </RainbowKitProvider>
       </WagmiConfig>
