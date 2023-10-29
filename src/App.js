@@ -10,6 +10,7 @@ import { polygonMumbai } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 import { MintButton, DispenseButton } from "./components/DispenserButtons";
 import { AddDataButton, GetDataButton } from "./components/DataButtons";
+import {ProviderForm} from "./components/ProviderForm"
 
 const { chains, publicClient } = configureChains(
   [polygonMumbai],
@@ -23,7 +24,7 @@ const wagmiConfig = createConfig({
 
 function App() {
   return (
-    <>
+    <div className="app-container">
       <WagmiConfig config={wagmiConfig}>
         <RainbowKitProvider chains={chains}>
           <h1>ETHMiami 2023</h1>
@@ -32,9 +33,10 @@ function App() {
           <DispenseButton /> <br />
           <GetDataButton /> <br />
           <AddDataButton /> <br />
+          <ProviderForm/>
         </RainbowKitProvider>
       </WagmiConfig>
-    </>
+    </div>
   );
 }
 
