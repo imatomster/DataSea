@@ -16,17 +16,17 @@ const freAddress = "0x25e1926E3d57eC0651e89C654AB0FA182C6D5CF7";
 const freId =
   "0xd5cc01c3e79dbfd17395fedc9dd5112e11c3a639fc81cc15041da82f6a5e4496";
 const dispenserNftAddy = "0x57155113737e5BFfA6D1776963C2A366300a361F";
-const dispenserDatatokenHash = "0xE0f5a9508040fBF3f7EEbcB13542082417AEeDc1";
+// const dispenserDatatokenHash = "0xE0f5a9508040fBF3f7EEbcB13542082417AEeDc1";
 
-const createDispenser = async () => {
+const createDispenser = async (name, symbol) => {
   const config = await oceanConfig();
   const publisherAccount = config.publisherAccount;
 
   const factory = new NftFactory(config.nftFactoryAddress, publisherAccount);
 
   const nftParams = {
-    name: "B@B NFT",
-    symbol: "bab",
+    name: name,
+    symbol: symbol,
     templateIndex: 1,
     tokenURI: "",
     transferable: true,
@@ -79,13 +79,12 @@ const createDispenser = async () => {
   };
 };
 
-const dispenseNFT = async () => {
+const dispenseNFT = async (name, symbol, dispenserDatatokenHash) => {
   const config = await oceanConfig();
   const publisherAccount = config.publisherAccount;
   const datatoken = new Datatoken(publisherAccount);
   console.log(datatoken);
   const dispenser = new Dispenser(config.dispenserAddress, publisherAccount);
-  const DISP_NFT_SYMBOL = "B@B Dispenser Coin";
 
   const consumerAccount = publisherAccount;
 
@@ -95,7 +94,7 @@ const dispenseNFT = async () => {
     await consumerAccount.getAddress()
   );
   console.log(
-    `Consumer ${DISP_NFT_SYMBOL} balance before dispense: ${consumerDTBalance}`
+    `Consumer ${name} balance before dispense: ${consumerDTBalance}`
   );
 
   await dispenser.dispense(
@@ -110,7 +109,7 @@ const dispenseNFT = async () => {
     await consumerAccount.getAddress()
   );
   console.log(
-    `Consumer ${DISP_NFT_SYMBOL} balance after dispense: ${consumerDTBalance}`
+    `Consumer ${symbol} balance after dispense: ${consumerDTBalance}`
   );
 };
 
