@@ -7,5 +7,21 @@ import {
 } from "@rainbow-me/rainbowkit";
 
 export function AIProcessing() {
-  return <div className="h-full">Setting Page</div>;
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+        marginTop: "0px",
+        paddingTop: "0px",
+      }}
+    >
+      <iframe
+        src="https://chatbot.hellotars.com/conv/NJba4f/"
+        style={{ width: "100%", height: "100%" }}
+      ></iframe>
+    </div>
+  );
 }
