@@ -2,15 +2,23 @@ import React from "react";
 import { createDispenser, dispenseNFT } from "../utils/handleDispenser";
 
 const handleCreateDispenser = () => {
-  createDispenser().then((res) => {
-    console.log(res);
-  });
+  try {
+    createDispenser().then((res) => {
+      console.log(res);
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const handleDispense = () => {
-  dispenseNFT().then((res) => {
-    console.log(res);
-  });
+  try {
+    dispenseNFT().then((res) => {
+      console.log(res);
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export function MintButton(props) {

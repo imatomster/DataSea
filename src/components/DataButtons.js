@@ -2,7 +2,7 @@ import React from "react";
 import { setNFTData, getNFTData } from "../utils/handleData";
 
 const handleAddData = () => {
-  setNFTData().then((res) => {
+  setNFTData("resetdata").then((res) => {
     console.log(res);
   });
 };
