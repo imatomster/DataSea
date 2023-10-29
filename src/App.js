@@ -1,17 +1,16 @@
 import "./App.css";
-import { createDataNFT } from "./utils/create_dataNFT";
+import { MintButton, DispenseButton } from "./components/DispenserButtons";
+import { AddDataButton, GetDataButton } from "./components/DataButtons";
 
 function App() {
   return (
-    <button onClick={() => {
-      createDataNFT()
-      .then(({ nftAddress }) => {
-        console.log(`DataNft address ${nftAddress}`);
-      })
-      .catch((err) => {
-        console.error(err);
-      })
-    }}>Click</button>
+    <>
+      <h1>ETHMiami 2023</h1>
+      <MintButton /> <br />
+      <DispenseButton /> <br />
+      <GetDataButton /> <br />
+      <AddDataButton /> <br />
+    </>
   );
 }
 

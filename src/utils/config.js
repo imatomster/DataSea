@@ -1,6 +1,6 @@
 //const dotenv = require("dotenv").config();
 const {
-  Aquarius,
+  // Aquarius,
   ConfigHelper,
   // configHelperNetworks,
 } = require("@oceanprotocol/lib");
@@ -23,7 +23,7 @@ async function oceanConfig() {
   );
   // console.log((await publisherAccount.provider.getNetwork()).chainId);
 
-  const aquarius = new Aquarius(oceanConfig?.metadataCacheUri);
+  // const aquarius = new Aquarius(oceanConfig?.metadataCacheUri);
 
   // If using local development environment, read the addresses from local file.
   // The local deployment address file can be generated using barge.
@@ -50,7 +50,6 @@ async function oceanConfig() {
     ...oceanConfig,
     publisherAccount: publisherAccount,
     consumerAccount: publisherAccount,
-    aquarius: aquarius,
   };
 
   return oceanConfig;
