@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+# DataSea: Revolutionizing Data Access & Ownership
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+In industries like real estate, access to niche and consistent datasets over time is a challenging endeavor. Often, the data is monopolized by singular entities, such as the government, making access not only limited but arduous. The digital landscape presents a similar challenge, where consumers find themselves devoid of genuine ownership of their data. DataSea aims to reshape this narrative by providing a platform for encrypted dataset streaming and AI model sharing, ensuring both transparency and security.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Encrypted Data Streaming**: DataSea allows providers to stream waves of encrypted datasets and AI models to buyers, ensuring security and authenticity.
+- **Consumer Data Ownership**: Empowering users with the ability to securely sell their data, fostering a new age of data sovereignty.
+- **Dynamic NFTs**: Utilization of Ocean Protocol to create dynamic NFTs that store encrypted user data, combining data innovation with blockchain integrity.
+- **ERC20 Access Tokens**: Facilitating the secure access and transfer of data ownership.
+- **ERC 725 Data Storage**: Leveraging Ocean's key-value pairing, DataSea provides a robust data storage mechanism, ensuring consistency and reliability.
+- **Reselling Mechanism**: Owners can monetize their data by reselling the ownership and tokenized data through the dispensary.
+- **Automated AI Integration**: Streamlining property data to seamlessly integrate into AI or predictive models, paving the way for cutting-edge analytics.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technical Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Ocean Protocol**: Interaction with smart contracts for NFT and token creation.
+- **Barge Aquarius & Provider**: Responsible for storing and encrypting data tied to NFTs.
+- **FRE & Dispenser**: Tools for NFT creation, updating, and dispensary functionalities.
 
-### `npm test`
+## How to Use
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Data Upload**: Users can upload their datasets, which are then encrypted and tied to a unique NFT.
+2. **Access Control**: Utilizing ERC20 access tokens, users can grant or restrict access to their data.
+3. **Data Resell**: Using the integrated dispensary, users can monetize their datasets by reselling ownership and tokenized data.
+4. **AI Integration**: Automated tools enable the seamless incorporation of property data into predictive models or AI systems.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
